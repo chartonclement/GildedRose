@@ -141,6 +141,20 @@ public class GildedRoseTest {
 	public void testUpdateEndOfDay_mana_cake_quality_3_6() {
 		// Arrange
 		GildedRose store = new GildedRose();
+		store.addItem(new Item("Conjured Mana Cake", 3, 6) );
+		
+		// Act
+		store.updateEndOfDay();
+		
+		// Assert
+		List<Item> items = store.getItems();
+		Item itemCake = items.get(0);
+		assertEquals(5, itemCake.getQuality());
+	}
+	@Test
+	public void testUpdateEndOfDay_mana_cake_quality_0_6() {
+		// Arrange
+		GildedRose store = new GildedRose();
 		store.addItem(new Item("Conjured Mana Cake", 0, 6) );
 		
 		// Act
